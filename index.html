@@ -18,462 +18,133 @@
       --rojo:      #c62828;
       --naranja:   #e65100;
     }
-
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     html { scroll-behavior: smooth; }
-
-    body {
-      font-family: 'DM Sans', sans-serif;
-      background: var(--blanco);
-      color: var(--texto);
-      overflow-x: hidden;
-    }
-
+    body { font-family: 'DM Sans', sans-serif; background: var(--blanco); color: var(--texto); overflow-x: hidden; }
     .container { max-width: 980px; margin: 0 auto; padding: 0 20px; }
     .tag {
-      display: inline-block;
-      font-size: 10px;
-      font-weight: 700;
-      letter-spacing: 3px;
-      text-transform: uppercase;
-      padding: 5px 12px;
-      border-radius: 100px;
-      background: var(--lima);
-      color: var(--verde);
-      margin-bottom: 16px;
+      display: inline-block; font-size: 10px; font-weight: 700; letter-spacing: 3px;
+      text-transform: uppercase; padding: 5px 12px; border-radius: 100px;
+      background: var(--lima); color: var(--verde); margin-bottom: 16px;
     }
     h2.titulo {
-      font-family: 'Bebas Neue', sans-serif;
-      font-size: clamp(2.4rem, 6vw, 4rem);
-      line-height: 1;
-      color: var(--verde);
-      margin-bottom: 16px;
+      font-family: 'Bebas Neue', sans-serif; font-size: clamp(2.4rem, 6vw, 4rem);
+      line-height: 1; color: var(--verde); margin-bottom: 16px;
     }
-    p.bajada {
-      font-size: clamp(1rem, 2.5vw, 1.15rem);
-      color: var(--muted);
-      line-height: 1.75;
-      max-width: 580px;
-    }
+    p.bajada { font-size: clamp(1rem, 2.5vw, 1.15rem); color: var(--muted); line-height: 1.75; max-width: 580px; }
 
-    .reveal {
-      opacity: 0;
-      transform: translateY(30px);
-      transition: opacity .65s ease, transform .65s ease;
-    }
-    .reveal.on { opacity: 1; transform: translateY(0); }
-
-    /* ─── NAV ─── */
+    /* NAV */
     nav {
       position: fixed; top: 0; left: 0; right: 0; z-index: 99;
-      background: rgba(27, 94, 32, 0.96);
-      backdrop-filter: blur(10px);
-      padding: 14px 20px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
+      background: rgba(27,94,32,0.96); backdrop-filter: blur(10px);
+      padding: 14px 20px; display: flex; justify-content: space-between; align-items: center;
     }
-    .nav-brand {
-      display: flex; align-items: center; gap: 10px;
-      text-decoration: none;
-    }
-    .nav-brand-dot {
-      width: 10px; height: 10px;
-      border-radius: 50%;
-      background: var(--lima);
-    }
-    .nav-brand span {
-      font-family: 'Bebas Neue', sans-serif;
-      font-size: 1.2rem;
-      color: #fff;
-      letter-spacing: 2px;
-    }
+    .nav-brand { display: flex; align-items: center; gap: 10px; text-decoration: none; }
+    .nav-brand-dot { width: 10px; height: 10px; border-radius: 50%; background: var(--lima); }
+    .nav-brand span { font-family: 'Bebas Neue', sans-serif; font-size: 1.2rem; color: #fff; letter-spacing: 2px; }
     .nav-links { display: flex; gap: 28px; list-style: none; }
-    .nav-links a {
-      color: rgba(255,255,255,.65);
-      text-decoration: none;
-      font-size: 12px;
-      font-weight: 700;
-      letter-spacing: 1.5px;
-      text-transform: uppercase;
-      transition: color .2s;
-    }
+    .nav-links a { color: rgba(255,255,255,.65); text-decoration: none; font-size: 12px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; transition: color .2s; }
     .nav-links a:hover { color: var(--lima); }
     @media (max-width: 580px) { .nav-links { display: none; } }
 
-    /* ─── HERO ─── */
+    /* HERO */
     .hero {
-      min-height: 100vh;
-      background: var(--verde);
-      display: flex;
-      align-items: center;
-      padding: 120px 20px 80px;
-      position: relative;
-      overflow: hidden;
+      min-height: 100vh; background: var(--verde);
+      display: flex; align-items: center; padding: 120px 20px 80px;
+      position: relative; overflow: hidden;
     }
     .hero::before {
-      content: '';
-      position: absolute; inset: 0;
-      background-image:
-        radial-gradient(circle at 70% 40%, rgba(174,234,0,.12) 0%, transparent 55%),
-        radial-gradient(circle at 20% 80%, rgba(67,160,71,.25) 0%, transparent 50%);
+      content: ''; position: absolute; inset: 0;
+      background-image: radial-gradient(circle at 70% 40%, rgba(174,234,0,.12) 0%, transparent 55%), radial-gradient(circle at 20% 80%, rgba(67,160,71,.25) 0%, transparent 50%);
     }
     .hero-circle {
-      position: absolute;
-      right: -120px; top: 50%;
-      transform: translateY(-50%);
-      width: clamp(300px, 45vw, 600px);
-      height: clamp(300px, 45vw, 600px);
-      border-radius: 50%;
-      border: 2px solid rgba(174,234,0,.15);
-      pointer-events: none;
+      position: absolute; right: -120px; top: 50%; transform: translateY(-50%);
+      width: clamp(300px,45vw,600px); height: clamp(300px,45vw,600px);
+      border-radius: 50%; border: 2px solid rgba(174,234,0,.15); pointer-events: none;
     }
-    .hero-circle::after {
-      content: '';
-      position: absolute; inset: 40px;
-      border-radius: 50%;
-      border: 1px solid rgba(174,234,0,.1);
-    }
+    .hero-circle::after { content: ''; position: absolute; inset: 40px; border-radius: 50%; border: 1px solid rgba(174,234,0,.1); }
     .hero-content { position: relative; z-index: 1; max-width: 680px; }
-    .hero-eyebrow {
-      font-size: 11px;
-      font-weight: 700;
-      letter-spacing: 4px;
-      text-transform: uppercase;
-      color: var(--lima);
-      margin-bottom: 20px;
-      opacity: 0;
-      animation: fadeUp .6s .2s forwards;
-    }
-    .hero h1 {
-      font-family: 'Bebas Neue', sans-serif;
-      font-size: clamp(3.8rem, 12vw, 8rem);
-      line-height: .92;
-      color: #fff;
-      margin-bottom: 24px;
-      opacity: 0;
-      animation: fadeUp .7s .4s forwards;
-    }
-    .hero h1 em {
-      font-style: normal;
-      color: var(--lima);
-      display: block;
-    }
-    .hero-desc {
-      font-size: clamp(1rem, 2vw, 1.15rem);
-      color: rgba(255,255,255,.72);
-      line-height: 1.75;
-      max-width: 480px;
-      margin-bottom: 36px;
-      opacity: 0;
-      animation: fadeUp .7s .6s forwards;
-    }
-    .hero-pills {
-      display: flex; flex-wrap: wrap; gap: 10px;
-      opacity: 0;
-      animation: fadeUp .7s .8s forwards;
-    }
-    .pill {
-      background: rgba(255,255,255,.1);
-      border: 1px solid rgba(255,255,255,.2);
-      color: #fff;
-      font-size: 12px;
-      font-weight: 700;
-      letter-spacing: 1px;
-      padding: 8px 16px;
-      border-radius: 100px;
-      text-decoration: none;
-      transition: background .2s, border-color .2s;
-    }
+    .hero-eyebrow { font-size: 11px; font-weight: 700; letter-spacing: 4px; text-transform: uppercase; color: var(--lima); margin-bottom: 20px; opacity: 0; animation: fadeUp .6s .2s forwards; }
+    .hero h1 { font-family: 'Bebas Neue', sans-serif; font-size: clamp(3.8rem,12vw,8rem); line-height: .92; color: #fff; margin-bottom: 24px; opacity: 0; animation: fadeUp .7s .4s forwards; }
+    .hero h1 em { font-style: normal; color: var(--lima); display: block; }
+    .hero-desc { font-size: clamp(1rem,2vw,1.15rem); color: rgba(255,255,255,.72); line-height: 1.75; max-width: 480px; margin-bottom: 36px; opacity: 0; animation: fadeUp .7s .6s forwards; }
+    .hero-pills { display: flex; flex-wrap: wrap; gap: 10px; opacity: 0; animation: fadeUp .7s .8s forwards; }
+    .pill { background: rgba(255,255,255,.1); border: 1px solid rgba(255,255,255,.2); color: #fff; font-size: 12px; font-weight: 700; letter-spacing: 1px; padding: 8px 16px; border-radius: 100px; text-decoration: none; transition: background .2s, border-color .2s; }
     .pill:hover { background: var(--lima); color: var(--verde); border-color: var(--lima); }
-    .hero-agencia {
-      position: absolute;
-      bottom: 28px; right: 28px;
-      font-size: 11px;
-      font-weight: 700;
-      letter-spacing: 2px;
-      text-transform: uppercase;
-      color: rgba(255,255,255,.65);
-    }
-    @keyframes fadeUp {
-      from { opacity: 0; transform: translateY(20px); }
-      to   { opacity: 1; transform: translateY(0); }
-    }
+    .hero-agencia { position: absolute; bottom: 28px; right: 28px; font-size: 11px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: rgba(255,255,255,.65); }
+    @keyframes fadeUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
 
-    /* ─── STATS ─── */
-    .stats {
-      background: var(--lima);
-      padding: 22px 20px;
-    }
-    .stats-inner {
-      display: flex;
-      justify-content: center;
-      gap: clamp(24px, 6vw, 80px);
-      flex-wrap: wrap;
-      text-align: center;
-    }
-    .stat-num {
-      font-family: 'Bebas Neue', sans-serif;
-      font-size: 2rem;
-      color: var(--verde);
-      line-height: 1;
-    }
-    .stat-label {
-      font-size: 10px;
-      font-weight: 700;
-      letter-spacing: 2px;
-      text-transform: uppercase;
-      color: var(--verde-med);
-      margin-top: 4px;
-    }
+    /* STATS */
+    .stats { background: var(--lima); padding: 22px 20px; }
+    .stats-inner { display: flex; justify-content: center; gap: clamp(24px,6vw,80px); flex-wrap: wrap; text-align: center; }
+    .stat-num { font-family: 'Bebas Neue', sans-serif; font-size: 2rem; color: var(--verde); line-height: 1; }
+    .stat-label { font-size: 10px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: var(--verde-med); margin-top: 4px; }
 
-    /* ─── QUÉ ES ─── */
+    /* QUE ES */
     #que-es { padding: 90px 20px; background: var(--blanco); }
-    .que-es-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 60px;
-      align-items: center;
-      margin-top: 48px;
-    }
+    .que-es-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; margin-top: 48px; }
     @media (max-width: 700px) { .que-es-grid { grid-template-columns: 1fr; gap: 36px; } }
-
-    .que-es-visual {
-      background: linear-gradient(135deg, var(--verde) 0%, var(--verde-viv) 100%);
-      border-radius: 16px;
-      padding: 40px 32px;
-      color: #fff;
-      position: relative;
-      overflow: hidden;
-    }
-    .que-es-visual::before {
-      content: '';
-      position: absolute;
-      top: -40px; right: -40px;
-      width: 180px; height: 180px;
-      border-radius: 50%;
-      background: rgba(174,234,0,.15);
-    }
-    .que-es-visual .big-text {
-      font-family: 'Bebas Neue', sans-serif;
-      font-size: 5rem;
-      line-height: 1;
-      color: rgba(255,255,255,.12);
-      position: absolute;
-      bottom: 16px; right: 20px;
-    }
-    .que-es-visual h3 {
-      font-family: 'Bebas Neue', sans-serif;
-      font-size: 1.8rem;
-      margin-bottom: 16px;
-      color: var(--lima);
-    }
-    .que-es-visual p {
-      font-size: .95rem;
-      line-height: 1.75;
-      opacity: .85;
-      position: relative; z-index: 1;
-    }
-
+    .que-es-visual { background: linear-gradient(135deg, var(--verde) 0%, var(--verde-viv) 100%); border-radius: 16px; padding: 40px 32px; color: #fff; position: relative; overflow: hidden; }
+    .que-es-visual::before { content: ''; position: absolute; top: -40px; right: -40px; width: 180px; height: 180px; border-radius: 50%; background: rgba(174,234,0,.15); }
+    .que-es-visual .big-text { font-family: 'Bebas Neue', sans-serif; font-size: 5rem; line-height: 1; color: rgba(255,255,255,.12); position: absolute; bottom: 16px; right: 20px; }
+    .que-es-visual h3 { font-family: 'Bebas Neue', sans-serif; font-size: 1.8rem; margin-bottom: 16px; color: var(--lima); }
+    .que-es-visual p { font-size: .95rem; line-height: 1.75; opacity: .85; position: relative; z-index: 1; }
     .que-es-lista { display: flex; flex-direction: column; gap: 18px; }
     .check-item { display: flex; gap: 14px; align-items: flex-start; }
-    .check-icon {
-      flex-shrink: 0;
-      width: 28px; height: 28px;
-      background: var(--lima);
-      border-radius: 50%;
-      display: flex; align-items: center; justify-content: center;
-      font-size: .8rem;
-      color: var(--verde);
-      font-weight: 900;
-      margin-top: 2px;
-    }
+    .check-icon { flex-shrink: 0; width: 28px; height: 28px; background: var(--lima); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: .8rem; color: var(--verde); font-weight: 900; margin-top: 2px; }
     .check-item p { font-size: .97rem; color: var(--muted); line-height: 1.65; }
     .check-item p strong { color: var(--texto); }
 
-    /* ─── RECOMENDACIONES ─── */
-    #recomendaciones {
-      padding: 90px 20px;
-      background: var(--verde);
-      position: relative;
-      overflow: hidden;
-    }
-    #recomendaciones::before {
-      content: '';
-      position: absolute;
-      bottom: -100px; left: -100px;
-      width: 400px; height: 400px;
-      border-radius: 50%;
-      background: rgba(174,234,0,.06);
-    }
+    /* RECOMENDACIONES */
+    #recomendaciones { padding: 90px 20px; background: var(--verde); position: relative; overflow: hidden; }
+    #recomendaciones::before { content: ''; position: absolute; bottom: -100px; left: -100px; width: 400px; height: 400px; border-radius: 50%; background: rgba(174,234,0,.06); }
     #recomendaciones .tag { background: rgba(174,234,0,.2); color: var(--lima); }
     #recomendaciones h2.titulo { color: #fff; }
     #recomendaciones p.bajada { color: rgba(255,255,255,.65); }
-
-    .recom-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap: 16px;
-      margin-top: 52px;
-    }
-    .recom-card {
-      background: rgba(255,255,255,.07);
-      border: 1px solid rgba(255,255,255,.1);
-      border-radius: 12px;
-      padding: 28px 24px;
-      transition: background .2s, transform .2s;
-      position: relative;
-      overflow: hidden;
-    }
+    .recom-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px,1fr)); gap: 16px; margin-top: 52px; }
+    .recom-card { background: rgba(255,255,255,.07); border: 1px solid rgba(255,255,255,.1); border-radius: 12px; padding: 28px 24px; transition: background .2s, transform .2s; position: relative; overflow: hidden; }
     .recom-card:hover { background: rgba(255,255,255,.12); transform: translateY(-4px); }
-    .recom-card .num {
-      font-family: 'Bebas Neue', sans-serif;
-      font-size: 4rem;
-      color: rgba(174,234,0,.15);
-      position: absolute;
-      top: 8px; right: 16px;
-      line-height: 1;
-    }
+    .recom-card .num { font-family: 'Bebas Neue', sans-serif; font-size: 4rem; color: rgba(174,234,0,.15); position: absolute; top: 8px; right: 16px; line-height: 1; }
     .recom-card .icon { font-size: 1.8rem; margin-bottom: 14px; }
-    .recom-card h3 {
-      font-size: .85rem;
-      font-weight: 700;
-      letter-spacing: 1.5px;
-      text-transform: uppercase;
-      color: var(--lima);
-      margin-bottom: 10px;
-    }
+    .recom-card h3 { font-size: .85rem; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: var(--lima); margin-bottom: 10px; }
     .recom-card p { font-size: .92rem; color: rgba(255,255,255,.7); line-height: 1.7; }
 
-    /* ─── SEÑALES ─── */
+    /* SENALES */
     #senales { padding: 90px 20px; background: var(--gris); }
-    .senales-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 16px;
-      margin-top: 48px;
-    }
+    .senales-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 48px; }
     @media (max-width: 640px) { .senales-grid { grid-template-columns: 1fr; } }
-
-    .senal-card {
-      background: #fff;
-      border-radius: 12px;
-      padding: 22px 20px;
-      border-left: 4px solid var(--verde-viv);
-      box-shadow: 0 2px 12px rgba(0,0,0,.05);
-      display: flex;
-      gap: 14px;
-      align-items: flex-start;
-    }
+    .senal-card { background: #fff; border-radius: 12px; padding: 22px 20px; border-left: 4px solid var(--verde-viv); box-shadow: 0 2px 12px rgba(0,0,0,.05); display: flex; gap: 14px; align-items: flex-start; }
     .senal-card.alerta { border-color: var(--naranja); }
     .senal-card.riesgo { border-color: var(--rojo); }
     .senal-emoji { font-size: 1.4rem; flex-shrink: 0; }
-    .senal-card h4 {
-      font-size: .82rem;
-      font-weight: 700;
-      letter-spacing: 1px;
-      text-transform: uppercase;
-      color: var(--muted);
-      margin-bottom: 5px;
-    }
+    .senal-card h4 { font-size: .82rem; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; color: var(--muted); margin-bottom: 5px; }
     .senal-card p { font-size: .92rem; color: var(--texto); line-height: 1.6; }
 
-    /* ─── AYUDA ─── */
+    /* AYUDA */
     #ayuda { padding: 90px 20px; background: var(--verde); }
     #ayuda .tag { background: rgba(174,234,0,.2); color: var(--lima); }
     #ayuda h2.titulo { color: #fff; }
-
-    .ayuda-box {
-      margin-top: 48px;
-      background: rgba(255,255,255,.06);
-      border: 1px solid rgba(255,255,255,.12);
-      border-radius: 16px;
-      padding: clamp(28px, 5vw, 52px);
-      display: grid;
-      grid-template-columns: 1fr auto;
-      gap: 40px;
-      align-items: center;
-    }
-    @media (max-width: 620px) {
-      .ayuda-box { grid-template-columns: 1fr; }
-    }
-
+    .ayuda-box { margin-top: 48px; background: rgba(255,255,255,.06); border: 1px solid rgba(255,255,255,.12); border-radius: 16px; padding: clamp(28px,5vw,52px); display: grid; grid-template-columns: 1fr auto; gap: 40px; align-items: center; }
+    @media (max-width: 620px) { .ayuda-box { grid-template-columns: 1fr; } }
     .ayuda-items { display: flex; flex-direction: column; gap: 22px; }
     .ayuda-item { display: flex; gap: 14px; align-items: flex-start; }
     .ayuda-item-icon { font-size: 1.3rem; flex-shrink: 0; margin-top: 2px; }
-    .ayuda-item h4 {
-      font-size: .75rem;
-      font-weight: 700;
-      letter-spacing: 2px;
-      text-transform: uppercase;
-      color: var(--lima);
-      margin-bottom: 4px;
-    }
-    .ayuda-item p, .ayuda-item a {
-      font-size: .95rem;
-      color: rgba(255,255,255,.75);
-      text-decoration: none;
-      line-height: 1.6;
-    }
+    .ayuda-item h4 { font-size: .75rem; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: var(--lima); margin-bottom: 4px; }
+    .ayuda-item p, .ayuda-item a { font-size: .95rem; color: rgba(255,255,255,.75); text-decoration: none; line-height: 1.6; }
     .ayuda-item a:hover { color: var(--lima); }
-
     .ayuda-telefono { text-align: center; flex-shrink: 0; }
-    .ayuda-tel-num {
-      font-family: 'Bebas Neue', sans-serif;
-      font-size: clamp(2.2rem, 5vw, 3.2rem);
-      color: var(--lima);
-      line-height: 1;
-      display: block;
-    }
-    .ayuda-tel-sub {
-      font-size: 10px;
-      font-weight: 700;
-      letter-spacing: 2px;
-      text-transform: uppercase;
-      color: rgba(255,255,255,.45);
-      margin-top: 6px;
-      display: block;
-    }
-    .ayuda-tel-badge {
-      display: inline-block;
-      margin-top: 12px;
-      background: rgba(174,234,0,.15);
-      border: 1px solid rgba(174,234,0,.3);
-      color: var(--lima);
-      font-size: 10px;
-      font-weight: 700;
-      letter-spacing: 1.5px;
-      text-transform: uppercase;
-      padding: 5px 12px;
-      border-radius: 100px;
-    }
+    .ayuda-tel-num { font-family: 'Bebas Neue', sans-serif; font-size: clamp(2.2rem,5vw,3.2rem); color: var(--lima); line-height: 1; display: block; }
+    .ayuda-tel-sub { font-size: 10px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: rgba(255,255,255,.45); margin-top: 6px; display: block; }
+    .ayuda-tel-badge { display: inline-block; margin-top: 12px; background: rgba(174,234,0,.15); border: 1px solid rgba(174,234,0,.3); color: var(--lima); font-size: 10px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; padding: 5px 12px; border-radius: 100px; }
 
-    /* ─── FOOTER ─── */
-    footer {
-      background: #0a1a0b;
-      padding: 28px 20px;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 8px;
-      text-align: center;
-    }
-    footer .footer-brand {
-      font-family: 'Bebas Neue', sans-serif;
-      font-size: 1rem;
-      color: rgba(255,255,255,.3);
-      letter-spacing: 3px;
-    }
-    footer p {
-      font-size: 11px;
-      letter-spacing: 1px;
-      color: rgba(255,255,255,.2);
-    }
+    /* FOOTER */
+    footer { background: #0a1a0b; padding: 28px 20px; display: flex; flex-direction: column; align-items: center; gap: 8px; text-align: center; }
+    footer .footer-brand { font-family: 'Bebas Neue', sans-serif; font-size: 1rem; color: rgba(255,255,255,.3); letter-spacing: 3px; }
+    footer p { font-size: 11px; letter-spacing: 1px; color: rgba(255,255,255,.2); }
   </style>
 </head>
 <body>
 
-<!-- NAV -->
 <nav>
   <a class="nav-brand" href="#">
     <div class="nav-brand-dot"></div>
@@ -487,7 +158,6 @@
   </ul>
 </nav>
 
-<!-- HERO -->
 <section class="hero">
   <div class="hero-circle"></div>
   <div class="hero-content container">
@@ -503,37 +173,21 @@
   <div class="hero-agencia">📍 Alvear 885, Local 41 · Proba Tu Suerte</div>
 </section>
 
-<!-- STATS -->
 <div class="stats">
   <div class="stats-inner">
-    <div>
-      <div class="stat-num">24/7</div>
-      <div class="stat-label">Línea de ayuda disponible</div>
-    </div>
-    <div>
-      <div class="stat-num">100%</div>
-      <div class="stat-label">Gratuita y confidencial</div>
-    </div>
-    <div>
-      <div class="stat-num">SAME</div>
-      <div class="stat-label">Atendida por profesionales</div>
-    </div>
-    <div>
-      <div class="stat-num">365</div>
-      <div class="stat-label">Días del año</div>
-    </div>
+    <div><div class="stat-num">24/7</div><div class="stat-label">Línea de ayuda disponible</div></div>
+    <div><div class="stat-num">100%</div><div class="stat-label">Gratuita y confidencial</div></div>
+    <div><div class="stat-num">SAME</div><div class="stat-label">Atendida por profesionales</div></div>
+    <div><div class="stat-num">365</div><div class="stat-label">Días del año</div></div>
   </div>
 </div>
 
-<!-- QUÉ ES -->
 <section id="que-es">
   <div class="container">
-    <div class="reveal">
-      <span class="tag">Entendé el concepto</span>
-      <h2 class="titulo">¿Qué es el juego responsable?</h2>
-      <p class="bajada">Jugar responsablemente significa hacerlo como lo que es: entretenimiento. Ni más, ni menos.</p>
-    </div>
-    <div class="que-es-grid reveal">
+    <span class="tag">Entendé el concepto</span>
+    <h2 class="titulo">¿Qué es el juego responsable?</h2>
+    <p class="bajada">Jugar responsablemente significa hacerlo como lo que es: entretenimiento. Ni más, ni menos.</p>
+    <div class="que-es-grid">
       <div class="que-es-visual">
         <h3>La regla de oro</h3>
         <p>El juego es una actividad de ocio. Si jugás por diversión, dentro de tus posibilidades y sin descuidar lo importante, estás jugando bien.</p>
@@ -541,143 +195,53 @@
         <div class="big-text">217</div>
       </div>
       <div class="que-es-lista">
-        <div class="check-item">
-          <div class="check-icon">✓</div>
-          <p><strong>El juego es entretenimiento</strong>, no una forma de ganar dinero ni de resolver problemas económicos.</p>
-        </div>
-        <div class="check-item">
-          <div class="check-icon">✓</div>
-          <p><strong>Cada persona tiene sus límites.</strong> Conocerlos y respetarlos es la clave del juego sano.</p>
-        </div>
-        <div class="check-item">
-          <div class="check-icon">✓</div>
-          <p><strong>Podés disfrutar y ganar a veces,</strong> pero las probabilidades siempre favorecen al azar. No al jugador.</p>
-        </div>
-        <div class="check-item">
-          <div class="check-icon">✓</div>
-          <p><strong>Jugar en lugares autorizados</strong> te protege a vos y a tu familia.</p>
-        </div>
-        <div class="check-item">
-          <div class="check-icon">✓</div>
-          <p><strong>Pedir ayuda no es debilidad.</strong> Reconocer un problema y buscar solución es un acto de valentía.</p>
-        </div>
+        <div class="check-item"><div class="check-icon">✓</div><p><strong>El juego es entretenimiento</strong>, no una forma de ganar dinero ni de resolver problemas económicos.</p></div>
+        <div class="check-item"><div class="check-icon">✓</div><p><strong>Cada persona tiene sus límites.</strong> Conocerlos y respetarlos es la clave del juego sano.</p></div>
+        <div class="check-item"><div class="check-icon">✓</div><p><strong>Podés disfrutar y ganar a veces,</strong> pero las probabilidades siempre favorecen al azar. No al jugador.</p></div>
+        <div class="check-item"><div class="check-icon">✓</div><p><strong>Jugar en lugares autorizados</strong> te protege a vos y a tu familia.</p></div>
+        <div class="check-item"><div class="check-icon">✓</div><p><strong>Pedir ayuda no es debilidad.</strong> Reconocer un problema y buscar solución es un acto de valentía.</p></div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- RECOMENDACIONES -->
 <section id="recomendaciones">
   <div class="container">
-    <div class="reveal">
-      <span class="tag">Jugá mejor</span>
-      <h2 class="titulo">6 consejos para jugar<br>de forma saludable</h2>
-      <p class="bajada">Si jugás, que sea para divertirte. Estas recomendaciones te ayudan a mantener el control.</p>
-    </div>
-    <div class="recom-grid reveal">
-      <div class="recom-card">
-        <div class="num">1</div>
-        <div class="icon">🏛️</div>
-        <h3>Lugares seguros</h3>
-        <p>Jugá siempre en agencias y locales debidamente autorizados por INPROJUY. Es tu garantía de juego justo.</p>
-      </div>
-      <div class="recom-card">
-        <div class="num">2</div>
-        <div class="icon">😄</div>
-        <h3>Solo diversión</h3>
-        <p>El juego es diversión y entretenimiento. Nunca una fuente de ingresos ni una solución a problemas económicos.</p>
-      </div>
-      <div class="recom-card">
-        <div class="num">3</div>
-        <div class="icon">🚦</div>
-        <h3>Autoexcluíte si dudás</h3>
-        <p>Si no tenés claro por qué jugás, o sentís que no podés parar: autoexcluíte. Es una herramienta, no una derrota.</p>
-      </div>
-      <div class="recom-card">
-        <div class="num">4</div>
-        <div class="icon">💸</div>
-        <h3>No gastés de más</h3>
-        <p>Fijá un presupuesto antes de empezar y respetalo siempre. No gastés más de lo que podés permitirte perder.</p>
-      </div>
-      <div class="recom-card">
-        <div class="num">5</div>
-        <div class="icon">⏱️</div>
-        <h3>Planificá tu tiempo</h3>
-        <p>Decidí cuánto tiempo y dinero vas a dedicar antes de jugar. Cumplir ese límite es parte del juego responsable.</p>
-      </div>
-      <div class="recom-card">
-        <div class="num">6</div>
-        <div class="icon">🤝</div>
-        <h3>Buscá ayuda</h3>
-        <p>Si el juego afecta tu vida personal, familiar o laboral, no estás solo. Hay profesionales listos para ayudarte.</p>
-      </div>
+    <span class="tag">Jugá mejor</span>
+    <h2 class="titulo">6 consejos para jugar<br>de forma saludable</h2>
+    <p class="bajada">Si jugás, que sea para divertirte. Estas recomendaciones te ayudan a mantener el control.</p>
+    <div class="recom-grid">
+      <div class="recom-card"><div class="num">1</div><div class="icon">🏛️</div><h3>Lugares seguros</h3><p>Jugá siempre en agencias y locales debidamente autorizados por INPROJUY. Es tu garantía de juego justo.</p></div>
+      <div class="recom-card"><div class="num">2</div><div class="icon">😄</div><h3>Solo diversión</h3><p>El juego es diversión y entretenimiento. Nunca una fuente de ingresos ni una solución a problemas económicos.</p></div>
+      <div class="recom-card"><div class="num">3</div><div class="icon">🚦</div><h3>Autoexcluíte si dudás</h3><p>Si no tenés claro por qué jugás, o sentís que no podés parar: autoexcluíte. Es una herramienta, no una derrota.</p></div>
+      <div class="recom-card"><div class="num">4</div><div class="icon">💸</div><h3>No gastés de más</h3><p>Fijá un presupuesto antes de empezar y respetalo siempre. No gastés más de lo que podés permitirte perder.</p></div>
+      <div class="recom-card"><div class="num">5</div><div class="icon">⏱️</div><h3>Planificá tu tiempo</h3><p>Decidí cuánto tiempo y dinero vas a dedicar antes de jugar. Cumplir ese límite es parte del juego responsable.</p></div>
+      <div class="recom-card"><div class="num">6</div><div class="icon">🤝</div><h3>Buscá ayuda</h3><p>Si el juego afecta tu vida personal, familiar o laboral, no estás solo. Hay profesionales listos para ayudarte.</p></div>
     </div>
   </div>
 </section>
 
-<!-- SEÑALES DE ALERTA -->
 <section id="senales">
   <div class="container">
-    <div class="reveal">
-      <span class="tag">Prestá atención</span>
-      <h2 class="titulo">Señales de alerta</h2>
-      <p class="bajada">Reconocer estas señales a tiempo puede marcar una gran diferencia. En vos o en alguien que querés.</p>
-    </div>
-    <div class="senales-grid reveal">
-      <div class="senal-card">
-        <div class="senal-emoji">💭</div>
-        <div>
-          <h4>Pensamiento constante</h4>
-          <p>Pensás en el juego todo el tiempo, incluso cuando hacés otras actividades.</p>
-        </div>
-      </div>
-      <div class="senal-card alerta">
-        <div class="senal-emoji">💰</div>
-        <div>
-          <h4>Gastás más de lo planeado</h4>
-          <p>Superás seguido el dinero que habías decidido gastar antes de empezar.</p>
-        </div>
-      </div>
-      <div class="senal-card alerta">
-        <div class="senal-emoji">😟</div>
-        <div>
-          <h4>Ansiedad o irritabilidad</h4>
-          <p>Te sentís mal, ansioso o irritable cuando no podés jugar.</p>
-        </div>
-      </div>
-      <div class="senal-card riesgo">
-        <div class="senal-emoji">🏠</div>
-        <div>
-          <h4>Afecta tu vida cotidiana</h4>
-          <p>El juego empieza a perjudicar tu trabajo, tus relaciones o tu economía familiar.</p>
-        </div>
-      </div>
-      <div class="senal-card riesgo">
-        <div class="senal-emoji">🙈</div>
-        <div>
-          <h4>Lo ocultás</h4>
-          <p>Mentís o escondés cuánto jugás o cuánto gastás a familia o amigos.</p>
-        </div>
-      </div>
-      <div class="senal-card riesgo">
-        <div class="senal-emoji">🔄</div>
-        <div>
-          <h4>Jugás para recuperar</h4>
-          <p>Seguís jugando para intentar recuperar lo que perdiste. Esto se llama "caza de pérdidas".</p>
-        </div>
-      </div>
+    <span class="tag">Prestá atención</span>
+    <h2 class="titulo">Señales de alerta</h2>
+    <p class="bajada">Reconocer estas señales a tiempo puede marcar una gran diferencia. En vos o en alguien que querés.</p>
+    <div class="senales-grid">
+      <div class="senal-card"><div class="senal-emoji">💭</div><div><h4>Pensamiento constante</h4><p>Pensás en el juego todo el tiempo, incluso cuando hacés otras actividades.</p></div></div>
+      <div class="senal-card alerta"><div class="senal-emoji">💰</div><div><h4>Gastás más de lo planeado</h4><p>Superás seguido el dinero que habías decidido gastar antes de empezar.</p></div></div>
+      <div class="senal-card alerta"><div class="senal-emoji">😟</div><div><h4>Ansiedad o irritabilidad</h4><p>Te sentís mal, ansioso o irritable cuando no podés jugar.</p></div></div>
+      <div class="senal-card riesgo"><div class="senal-emoji">🏠</div><div><h4>Afecta tu vida cotidiana</h4><p>El juego empieza a perjudicar tu trabajo, tus relaciones o tu economía familiar.</p></div></div>
+      <div class="senal-card riesgo"><div class="senal-emoji">🙈</div><div><h4>Lo ocultás</h4><p>Mentís o escondés cuánto jugás o cuánto gastás a familia o amigos.</p></div></div>
+      <div class="senal-card riesgo"><div class="senal-emoji">🔄</div><div><h4>Jugás para recuperar</h4><p>Seguís jugando para intentar recuperar lo que perdiste. Esto se llama "caza de pérdidas".</p></div></div>
     </div>
   </div>
 </section>
 
-<!-- AYUDA -->
 <section id="ayuda">
   <div class="container">
-    <div class="reveal">
-      <span class="tag">No estás solo</span>
-      <h2 class="titulo">Pedí ayuda cuando la necesitás</h2>
-    </div>
-    <div class="ayuda-box reveal">
+    <span class="tag">No estás solo</span>
+    <h2 class="titulo">Pedí ayuda cuando la necesitás</h2>
+    <div class="ayuda-box">
       <div class="ayuda-items">
         <div class="ayuda-item">
           <span class="ayuda-item-icon">📞</span>
@@ -688,25 +252,19 @@
         </div>
         <div class="ayuda-item">
           <span class="ayuda-item-icon">📱</span>
-          <div>
-            <h4>Whatsapp / Teléfono</h4>
-            <a href="tel:+543884136280">388 413 6280</a>
-          </div>
+          <div><h4>Whatsapp / Teléfono</h4><a href="tel:+543884136280">388 413 6280</a></div>
         </div>
         <div class="ayuda-item">
           <span class="ayuda-item-icon">📧</span>
           <div>
             <h4>Correo electrónico</h4>
-            <a href="/cdn-cgi/l/email-protection#7a100f1f1d15081f090a1514091b18161f3a13140a0815100f03541d1518541b08"><span class="__cf_email__" data-cfemail="a1cbd4c4c6ced3c4d2d1cecfd2c0c3cdc4e1c8cfd1d3cecbd4d88fc6cec38fc0d3">[email&#160;protected]</span></a><br>
-            <a href="/cdn-cgi/l/email-protection#cca8a9a2b9a2afa5adbf8ca5a2bcbea3a6b9b5e2aba3aee2adbe"><span class="__cf_email__" data-cfemail="7a1e1f140f1419131b093a13140a0815100f03541d1518541b08">[email&#160;protected]</span></a>
+            <a href="mailto:juegoresponsable@inprojuy.gob.ar">juegoresponsable@inprojuy.gob.ar</a><br>
+            <a href="mailto:denuncias@inprojuy.gob.ar">denuncias@inprojuy.gob.ar</a>
           </div>
         </div>
         <div class="ayuda-item">
           <span class="ayuda-item-icon">🌐</span>
-          <div>
-            <h4>Sitio oficial</h4>
-            <a href="https://www.inprojuy.gob.ar" target="_blank">www.inprojuy.gob.ar</a>
-          </div>
+          <div><h4>Sitio oficial</h4><a href="https://www.inprojuy.gob.ar" target="_blank">www.inprojuy.gob.ar</a></div>
         </div>
       </div>
       <div class="ayuda-telefono">
@@ -718,8 +276,11 @@
   </div>
 </section>
 
-<!-- FOOTER -->
 <footer>
   <div class="footer-brand">Jugá x Jugar · Programa de Juego Responsable</div>
   <p>INPROJUY — Instituto Provincial de Juegos de Azar de Jujuy · Gobierno de Jujuy</p>
-  <p>Agencia 217 "Proba Tu Suerte"
+  <p>Agencia 217 "Proba Tu Suerte" · Alvear 885, Local 41</p>
+</footer>
+
+</body>
+</html>
