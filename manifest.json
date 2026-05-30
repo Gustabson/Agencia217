@@ -1,7 +1,19 @@
 {
-  "documentos": [
-    { "name": "Formulario de Cupones Anulados.pdf", "size": 171852 },
-    { "name": "Formulario de Retención.pdf", "size": 147304 }
-  ],
-  "recursos": []
+    "documentos":  [
+                       {
+                           "name":  "Formulario de Cupones Anulados.pdf",
+                           "size":  171852
+                       },
+                       {
+                           "name":  "Formulario de Retención.pdf",
+                           "size":  147304
+                       },
+                       {
+                           "name":  "Liquidaciones.pdf",
+                           "size":  719356
+                       }
+                   ],
+    "recursos":  [
+
+                 ]
 }
