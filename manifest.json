@@ -14,6 +14,17 @@
                        }
                    ],
     "recursos":  [
-
+                     {
+                         "name":  "Caja instalador.exe",
+                         "size":  76477526
+                     },
+                     {
+                         "name":  "Liquidaciones Subagentes.exe",
+                         "size":  91124126
+                     },
+                     {
+                         "name":  "Pantalla Instalador.exe",
+                         "size":  76305651
+                     }
                  ]
 }
