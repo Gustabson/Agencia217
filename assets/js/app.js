@@ -172,6 +172,8 @@
     grid.innerHTML = '';
     filtered.forEach(item => grid.appendChild(cardEl(item)));
     empty.hidden = filtered.length > 0;
+    const notice = document.getElementById('recursos-notice');
+    if (notice) notice.hidden = activeFilter !== 'recursos';
     updateCounts();
   }
 
