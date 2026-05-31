@@ -70,7 +70,10 @@
       desc: '',
       url: `${folderPath}/${encodeURIComponent(file.name)}`,
       icon: iconForFile(file.name),
-      meta: [ext, size].filter(Boolean).join(' · ')
+      meta: [ext, size].filter(Boolean).join(' · '),
+      // Los recursos se descargan (no se abren en pestaña). Guardamos el
+      // nombre original para que el archivo descargado conserve su nombre.
+      download: type === 'recursos' ? file.name : null
     };
   }
   async function fetchJSON(path) {
@@ -119,9 +122,16 @@
     a.className = 'card';
     a.href = item.url;
     a.dataset.type = item.type;
-    a.target = '_blank';
     a.rel = 'noopener noreferrer';
+    // Si es descargable (recursos), forzamos download del archivo.
+    // Si no, abre en pestaña nueva.
+    if (item.download) {
+      a.setAttribute('download', item.download);
+    } else {
+      a.target = '_blank';
+    }
     const icon = ICONS[item.icon] || ICONS.file;
+    const actionLabel = item.download ? 'Descargar' : 'Abrir';
     a.innerHTML = `
       <div class="card-head">
         <span class="card-icon">${icon}</span>
@@ -133,7 +143,7 @@
       <p class="card-desc">${escapeHtml(item.desc || '')}</p>
       <div class="card-foot">
         <span class="card-meta">${escapeHtml(item.meta || '')}</span>
-        <span class="card-action">Abrir ${ARROW}</span>
+        <span class="card-action">${actionLabel} ${ARROW}</span>
       </div>
     `;
     return a;
