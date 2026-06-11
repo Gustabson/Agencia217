@@ -1,6 +1,6 @@
-# Agencia 217 · Centro de recursos
+# Agencia 217 · Documentos y enlaces
 
-Página web moderna que centraliza documentos, enlaces y recursos de la Agencia 217.
+Página web moderna que centraliza documentos y enlaces de la Agencia 217.
 Modo claro y oscuro con toggle persistido en el navegador, buscador, filtros por categoría y diseño responsivo.
 
 🔗 **Sitio en vivo:** https://gustabson.github.io/Agencia217/
@@ -15,20 +15,19 @@ Agencia217/
 ├── assets/
 │   ├── css/style.css       ← Estilos (claro/oscuro)
 │   ├── js/app.js           ← Lógica: toggle, búsqueda, filtros, render
-│   ├── js/data.js          ← Lista de documentos, enlaces y recursos
+│   ├── js/data.js          ← Lista adicional de documentos y enlaces
 │   └── img/                ← Logo y favicon (SVG)
 ├── documentos/             ← Subí acá tus PDF, Word, etc.
-├── recursos/               ← Imágenes, plantillas, descargables
 ├── .nojekyll               ← Evita procesamiento Jekyll en GitHub Pages
 └── .gitignore
 ```
 
 ## Cómo agregar contenido
 
-### Documentos y recursos
+### Documentos
 
-1. Pegá los archivos en `documentos/` o `recursos/`.
-2. **Doble-click en `actualizar.bat`** — escanea las carpetas y actualiza `manifest.json`.
+1. Pegá los archivos en `documentos/`.
+2. **Doble-click en `actualizar.bat`** — escanea la carpeta y actualiza `manifest.json`.
 3. `git add . && git commit -m "..." && git push`.
 
 El título de cada tarjeta sale del nombre del archivo (los `_` y `-` se reemplazan por
@@ -53,7 +52,7 @@ copiás un bloque y cambiás los valores:
 
 Hacés `git push` y aparecen en la sección Enlaces.
 
-> **Tip:** todas las tarjetas (documentos, enlaces y recursos) abren en una pestaña nueva,
+> **Tip:** todas las tarjetas de documentos y enlaces abren en una pestaña nueva,
 > así no perdés la página del centro.
 
 ## Publicar en GitHub Pages
@@ -63,7 +62,7 @@ Ya tenés el repo `gustabson/Agencia217`. Desde esta carpeta:
 ```powershell
 git init
 git add .
-git commit -m "Inicial: centro de recursos Agencia 217"
+git commit -m "Inicial: documentos y enlaces Agencia 217"
 git branch -M main
 git remote add origin https://github.com/gustabson/Agencia217.git
 git push -u origin main

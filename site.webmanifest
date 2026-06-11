@@ -1,7 +1,7 @@
 {
   "name": "Agencia 217",
   "short_name": "Agencia 217",
-  "description": "Centro de recursos, documentos y enlaces de Agencia 217.",
+  "description": "Documentos y enlaces de Agencia 217.",
   "start_url": "./",
   "scope": "./",
   "display": "standalone",

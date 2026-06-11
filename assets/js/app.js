@@ -70,10 +70,7 @@
       desc: '',
       url: `${folderPath}/${encodeURIComponent(file.name)}`,
       icon: iconForFile(file.name),
-      meta: [ext, size].filter(Boolean).join(' · '),
-      // Los recursos se descargan (no se abren en pestaña). Guardamos el
-      // nombre original para que el archivo descargado conserve su nombre.
-      download: type === 'recursos' ? file.name : null
+      meta: [ext, size].filter(Boolean).join(' · ')
     };
   }
   async function fetchJSON(path) {
@@ -94,9 +91,6 @@
 
     if (manifest && Array.isArray(manifest.documentos)) {
       manifest.documentos.forEach(f => fetched.push(fileToItem('documentos', 'documentos', f)));
-    }
-    if (manifest && Array.isArray(manifest.recursos)) {
-      manifest.recursos.forEach(f => fetched.push(fileToItem('recursos', 'recursos', f)));
     }
     if (Array.isArray(enlaces)) {
       enlaces.forEach(item => fetched.push({
@@ -123,15 +117,9 @@
     a.href = item.url;
     a.dataset.type = item.type;
     a.rel = 'noopener noreferrer';
-    // Si es descargable (recursos), forzamos download del archivo.
-    // Si no, abre en pestaña nueva.
-    if (item.download) {
-      a.setAttribute('download', item.download);
-    } else {
-      a.target = '_blank';
-    }
+    a.target = '_blank';
     const icon = ICONS[item.icon] || ICONS.file;
-    const actionLabel = item.download ? 'Descargar' : 'Abrir';
+    const actionLabel = 'Abrir';
     a.innerHTML = `
       <div class="card-head">
         <span class="card-icon">${icon}</span>
@@ -172,13 +160,11 @@
     grid.innerHTML = '';
     filtered.forEach(item => grid.appendChild(cardEl(item)));
     empty.hidden = filtered.length > 0;
-    const notice = document.getElementById('recursos-notice');
-    if (notice) notice.hidden = activeFilter !== 'recursos';
     updateCounts();
   }
 
   function updateCounts() {
-    const counts = { documentos: 0, enlaces: 0, recursos: 0 };
+    const counts = { documentos: 0, enlaces: 0 };
     data.forEach(i => { if (counts[i.type] !== undefined) counts[i.type]++; });
     document.querySelectorAll('[data-count]').forEach(el => {
       const key = el.dataset.count;

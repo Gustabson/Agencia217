@@ -8,5 +8,5 @@
   <rect x="4" y="12" width="72" height="72" rx="18" fill="url(#lg)"/>
   <text x="40" y="63" text-anchor="middle" font-family="Inter, system-ui, sans-serif" font-weight="800" font-size="30" fill="#fff" letter-spacing="-0.5">217</text>
   <text x="92" y="52" font-family="Inter, system-ui, sans-serif" font-weight="800" font-size="30" fill="#0f172a" letter-spacing="-0.02em">Agencia</text>
-  <text x="92" y="78" font-family="Inter, system-ui, sans-serif" font-weight="500" font-size="14" fill="#64748b" letter-spacing="0.18em">CENTRO DE RECURSOS</text>
+  <text x="92" y="78" font-family="Inter, system-ui, sans-serif" font-weight="500" font-size="14" fill="#64748b" letter-spacing="0.12em">DOCUMENTOS Y ENLACES</text>
 </svg>
