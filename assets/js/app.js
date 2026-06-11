@@ -64,11 +64,12 @@
   function fileToItem(folderPath, type, file) {
     const ext = (file.name.split('.').pop() || '').toUpperCase();
     const size = formatSize(file.size);
+    const version = typeof file.size === 'number' ? `?v=${file.size}` : '';
     return {
       type,
       title: prettify(file.name),
       desc: '',
-      url: `${folderPath}/${encodeURIComponent(file.name)}`,
+      url: `${folderPath}/${encodeURIComponent(file.name)}${version}`,
       icon: iconForFile(file.name),
       meta: [ext, size].filter(Boolean).join(' · ')
     };
